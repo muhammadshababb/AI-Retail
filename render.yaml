@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ai-retail-intelligence
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn run:app
+    envVars:
+      - key: FLASK_APP
+        value: run.py
+      - key: FLASK_DEBUG
+        value: "0"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PYTHON_VERSION
+        value: 3.10.0
