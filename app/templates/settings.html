@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="app-container">
+    {% include 'sidebar.html' %}
+
+    <div class="main-content">
+        <div class="topbar">
+            <h2>Settings</h2>
+            <div class="user-profile">
+                <button id="themeToggle" class="btn-primary" style="padding: 8px; width: auto;"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="home-portal">
+                <div class="glow-orb orb-1"></div>
+                <div class="glow-orb orb-2"></div>
+
+                <!-- Header — pushed down slightly -->
+                <div style="padding-top: 32px; padding-bottom: 40px; position: relative; z-index: 1;">
+                    <h1 class="gradient-text" style="font-size: 36px; margin-bottom: 12px;">Preferences</h1>
+                    <p style="color: var(--text-muted); font-size: 15px; max-width: 540px;">
+                        Configure platform behaviour, analytics performance, and data security options.
+                    </p>
+                </div>
+
+                <!-- Settings Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; position: relative; z-index: 1;">
+
+                    <!-- Card: Performance -->
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 28px; backdrop-filter: blur(20px); transition: border-color 0.3s;">
+                        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                            <div style="width: 40px; height: 40px; background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #60A5FA; font-size: 18px; box-shadow: 0 0 15px rgba(59,130,246,0.15);">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 15px; font-weight: 600;">Performance</h4>
+                                <span style="font-size: 12px; color: var(--text-muted);">Speed & compute settings</span>
+                            </div>
+                        </div>
+
+                        <!-- Toggle Row -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <div>
+                                <div style="font-size: 14px; color: var(--text-main); font-weight: 500;">GPU Acceleration</div>
+                                <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Use GPU for ML model inference</div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-size: 14px; color: var(--text-main); font-weight: 500;">Fast Cache</div>
+                                <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Cache datasets in memory for instant charts</div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card: Security -->
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 28px; backdrop-filter: blur(20px); transition: border-color 0.3s;">
+                        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                            <div style="width: 40px; height: 40px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #34D399; font-size: 18px; box-shadow: 0 0 15px rgba(16,185,129,0.15);">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 15px; font-weight: 600;">Security</h4>
+                                <span style="font-size: 12px; color: var(--text-muted);">Data protection & logging</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <div>
+                                <div style="font-size: 14px; color: var(--text-main); font-weight: 500;">Encryption</div>
+                                <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Encrypt stored data at rest</div>
+                            </div>
+                            <div class="toggle" onclick="this.classList.toggle('on')">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-size: 14px; color: var(--text-main); font-weight: 500;">Activity Log</div>
+                                <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Track platform usage history</div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card: Forecasting -->
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 28px; backdrop-filter: blur(20px); transition: border-color 0.3s;">
+                        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                            <div style="width: 40px; height: 40px; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #A78BFA; font-size: 18px; box-shadow: 0 0 15px rgba(139,92,246,0.15);">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 15px; font-weight: 600;">AI Forecast</h4>
+                                <span style="font-size: 12px; color: var(--text-muted);">Model behaviour & output</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <div>
+                                <div style="font-size: 14px; color: var(--text-main); font-weight: 500;">Auto Forecast</div>
+                                <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Run predictions on new uploads</div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-size: 14px; color: var(--text-main); font-weight: 500;">Confidence Bands</div>
+                                <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Show prediction uncertainty range</div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card: Data -->
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.07); border-radius: 20px; padding: 28px; backdrop-filter: blur(20px); transition: border-color 0.3s;">
+                        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                            <div style="width: 40px; height: 40px; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #FBBF24; font-size: 18px; box-shadow: 0 0 15px rgba(245,158,11,0.15);">
+                                <i class="fa-solid fa-database"></i>
+                            </div>
+                            <div>
+                                <h4 style="margin: 0; font-size: 15px; font-weight: 600;">Data</h4>
+                                <span style="font-size: 12px; color: var(--text-muted);">Import & storage options</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <div>
+                                <div style="font-size: 14px; color: var(--text-main); font-weight: 500;">Auto Clean</div>
+                                <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Strip nulls and duplicates on import</div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <div style="font-size: 14px; color: var(--text-main); font-weight: 500;">Smart Detect</div>
+                                <div style="font-size: 12px; color: var(--text-muted); margin-top: 3px;">Auto-detect column types & dates</div>
+                            </div>
+                            <div class="toggle on" onclick="this.classList.toggle('on')">
+                                <div class="toggle-knob"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.toggle {
+    width: 46px;
+    height: 26px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 13px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    flex-shrink: 0;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.toggle.on {
+    background: linear-gradient(135deg, #3B82F6, #8B5CF6);
+    border-color: transparent;
+    box-shadow: 0 0 12px rgba(59,130,246,0.4);
+}
+.toggle-knob {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.toggle.on .toggle-knob {
+    transform: translateX(20px);
+}
+</style>
+{% endblock %}

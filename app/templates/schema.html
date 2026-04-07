@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="app-container">
+    {% include 'sidebar.html' %}
+
+    <div class="main-content">
+        <div class="topbar">
+            <h2>Architecture</h2>
+            <div class="user-profile">
+                <span style="font-size: 12px; color: var(--success); background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); padding: 6px 14px; border-radius: 20px; font-weight: 600; letter-spacing: 0.05em;">
+                    <i class="fa-solid fa-circle" style="font-size: 8px; margin-right: 6px; animation: pulse 2s infinite;"></i>ALL SYSTEMS LIVE
+                </span>
+                <button id="themeToggle" class="btn-primary" style="padding: 8px; width: auto; margin-left: 12px;"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="home-portal">
+                <div class="glow-orb orb-1"></div>
+                <div class="glow-orb orb-2"></div>
+
+                <!-- Hero -->
+                <div style="padding-top: 24px; padding-bottom: 40px; position: relative; z-index: 1;">
+                    <h1 class="gradient-text" style="font-size: 40px; margin-bottom: 12px;">System Architecture</h1>
+                    <p style="color: var(--text-muted); font-size: 15px; max-width: 560px;">
+                        Real-time view of the AI Retail platform infrastructure. Monitor pipeline health, data flow, and system nodes.
+                    </p>
+                </div>
+
+                <!-- Live Metrics Row -->
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; z-index: 1; margin-bottom: 48px;">
+                    <div style="background: rgba(59,130,246,0.05); border: 1px solid rgba(59,130,246,0.15); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">Pipeline Status</div>
+                        <div style="font-size: 22px; font-weight: 700; color: var(--success);">Active</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">4 nodes running</div>
+                    </div>
+                    <div style="background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.15); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">AI Model</div>
+                        <div style="font-size: 22px; font-weight: 700; color: #A78BFA;">Prophet</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Time-series forecasting</div>
+                    </div>
+                    <div style="background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.15); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">Database</div>
+                        <div style="font-size: 22px; font-weight: 700; color: #34D399;">SQLite</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Dynamic schema mapping</div>
+                    </div>
+                    <div style="background: rgba(245,158,11,0.05); border: 1px solid rgba(245,158,11,0.15); border-radius: 16px; padding: 20px; backdrop-filter: blur(10px);">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;">API Layer</div>
+                        <div style="font-size: 22px; font-weight: 700; color: #FBBF24;">Flask</div>
+                        <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">REST endpoints</div>
+                    </div>
+                </div>
+
+                <!-- Live Data Pipeline -->
+                <div class="system-monitor" style="margin-bottom: 40px;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px; position: relative; z-index: 1;">
+                        <h3 style="font-size: 18px; margin: 0; letter-spacing: -0.02em;">Live Data Pipeline</h3>
+                        <span style="font-size: 11px; color: var(--success); background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); padding: 3px 10px; border-radius: 10px; font-weight: 600; letter-spacing: 0.08em;">STREAMING</span>
+                    </div>
+                    <div class="pipeline-container">
+                        <div class="pipeline-node">
+                            <div class="node-icon"><i class="fa-solid fa-file-csv"></i></div>
+                            <h4>Ingestion</h4>
+                            <span class="node-status">Online</span>
+                        </div>
+                        <div class="pipeline-path"><div class="flowing-line"></div></div>
+                        <div class="pipeline-node">
+                            <div class="node-icon" style="background: rgba(139,92,246,0.1); color: #8B5CF6; border-color: rgba(139,92,246,0.2);">
+                                <i class="fa-solid fa-filter"></i>
+                            </div>
+                            <h4>ETL Engine</h4>
+                            <span class="node-status">Active</span>
+                        </div>
+                        <div class="pipeline-path"><div class="flowing-line flowing-delay"></div></div>
+                        <div class="pipeline-node">
+                            <div class="node-icon" style="background: rgba(16,185,129,0.1); color: #10B981; border-color: rgba(16,185,129,0.2);">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <h4>AI Inference</h4>
+                            <span class="node-status">Ready</span>
+                        </div>
+                        <div class="pipeline-path">
+                            <div class="flowing-line" style="background: #10B981; box-shadow: 0 0 10px #10B981; animation-delay: 0.5s;"></div>
+                        </div>
+                        <div class="pipeline-node">
+                            <div class="node-icon" style="background: rgba(245,158,11,0.1); color: #F59E0B; border-color: rgba(245,158,11,0.2);">
+                                <i class="fa-solid fa-chart-bar"></i>
+                            </div>
+                            <h4>Analytics</h4>
+                            <span class="node-status">Live</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Schema -->
+                <div class="system-monitor">
+                    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 32px; position: relative; z-index: 1;">
+                        <h3 style="font-size: 18px; margin: 0; letter-spacing: -0.02em;">Database Schema</h3>
+                        <span style="font-size: 11px; color: #34D399; background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); padding: 3px 10px; border-radius: 10px; font-weight: 600; letter-spacing: 0.08em;">100% IN SYNC</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; position: relative; z-index: 1;">
+
+                        <!-- Dataset Table -->
+                        <div style="background: rgba(245,158,11,0.03); border: 1px solid rgba(245,158,11,0.12); border-radius: 18px; padding: 24px; backdrop-filter: blur(12px); transition: all 0.3s ease;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <i class="fa-solid fa-table" style="color: #F59E0B; font-size: 16px;"></i>
+                                <span style="font-size: 14px; font-weight: 600; font-family: monospace; color: var(--text-main);">dataset_index</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 13px; color: var(--text-muted);">id</span>
+                                    <span style="font-size: 11px; font-family: monospace; color: #60A5FA; background: rgba(59,130,246,0.08); padding: 2px 8px; border-radius: 6px;">INTEGER · PK</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 13px; color: var(--text-muted);">name</span>
+                                    <span style="font-size: 11px; font-family: monospace; color: #A78BFA; background: rgba(139,92,246,0.08); padding: 2px 8px; border-radius: 6px;">VARCHAR(100)</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 13px; color: var(--text-muted);">table_name</span>
+                                    <span style="font-size: 11px; font-family: monospace; color: #A78BFA; background: rgba(139,92,246,0.08); padding: 2px 8px; border-radius: 6px;">VARCHAR(50)</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 13px; color: var(--text-muted);">row_count</span>
+                                    <span style="font-size: 11px; font-family: monospace; color: #34D399; background: rgba(16,185,129,0.08); padding: 2px 8px; border-radius: 6px;">INTEGER</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 13px; color: var(--text-muted);">uploaded_at</span>
+                                    <span style="font-size: 11px; font-family: monospace; color: #FBBF24; background: rgba(245,158,11,0.08); padding: 2px 8px; border-radius: 6px;">DATETIME</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Tables -->
+                        <div style="background: rgba(59,130,246,0.03); border: 1px solid rgba(59,130,246,0.12); border-radius: 18px; padding: 24px; backdrop-filter: blur(12px); transition: all 0.3s ease;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <i class="fa-solid fa-table" style="color: #60A5FA; font-size: 16px;"></i>
+                                <span style="font-size: 14px; font-weight: 600; font-family: monospace; color: var(--text-main);">dynamic_data_*</span>
+                            </div>
+                            <p style="font-size: 13px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px;">
+                                Each dataset gets a unique auto-generated table. Columns are inferred live from CSV/XLSX headers at ingestion time.
+                            </p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <span style="font-size: 11px; background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); color: #60A5FA; padding: 4px 12px; border-radius: 10px; font-family: monospace; font-weight: 600;">AUTO SCHEMA</span>
+                                <span style="font-size: 11px; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2); color: #34D399; padding: 4px 12px; border-radius: 10px; font-family: monospace; font-weight: 600;">DYNAMIC</span>
+                                <span style="font-size: 11px; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); color: #A78BFA; padding: 4px 12px; border-radius: 10px; font-family: monospace; font-weight: 600;">ETL CLEANED</span>
+                            </div>
+                        </div>
+
+                        <!-- Stack Info -->
+                        <div style="background: rgba(139,92,246,0.03); border: 1px solid rgba(139,92,246,0.12); border-radius: 18px; padding: 24px; backdrop-filter: blur(12px);">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                                <i class="fa-solid fa-layer-group" style="color: #A78BFA; font-size: 16px;"></i>
+                                <span style="font-size: 14px; font-weight: 600; color: var(--text-main);">Tech Stack</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 14px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 13px; color: var(--text-muted);">Backend</span>
+                                    <span style="font-size: 12px; font-weight: 600; color: var(--text-main);">Python · Flask</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 13px; color: var(--text-muted);">AI Engine</span>
+                                    <span style="font-size: 12px; font-weight: 600; color: var(--text-main);">Prophet · Scikit-learn</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 13px; color: var(--text-muted);">Database</span>
+                                    <span style="font-size: 12px; font-weight: 600; color: var(--text-main);">SQLite · SQLAlchemy</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 13px; color: var(--text-muted);">Data Pipeline</span>
+                                    <span style="font-size: 12px; font-weight: 600; color: var(--text-main);">Pandas · NumPy</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="font-size: 13px; color: var(--text-muted);">Charts</span>
+                                    <span style="font-size: 12px; font-weight: 600; color: var(--text-main);">Chart.js</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+</style>
+{% endblock %}

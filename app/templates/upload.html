@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="app-container">
+    <!-- Sidebar -->
+    {% include 'sidebar.html' %}
+
+    <div class="main-content">
+        <div class="topbar">
+            <h2>Upload New Dataset</h2>
+            <div class="user-profile">
+                <button id="themeToggle" class="btn-primary" style="padding: 8px; width: auto;"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+
+        <div class="content-body" style="display: flex; justify-content: center; align-items: center; max-width: 800px; margin: 0 auto;">
+            <div class="panel" style="width: 100%;">
+                <div class="panel-header">
+                    <h3 class="panel-title">Data Ingestion Engine</h3>
+                </div>
+                <form method="POST" action="{{ url_for('dataset.upload') }}" enctype="multipart/form-data" id="uploadForm">
+                    <div class="upload-area" id="dropZone" onclick="document.getElementById('fileInput').click()" style="margin-top: 0">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <h3>Drag & Drop CSV / Excel File Here</h3>
+                        <p style="color: var(--text-muted); margin-top: 8px;">Max file size 50MB. Auto-detects columns.</p>
+                        <input type="file" name="file" id="fileInput" accept=".csv, .xlsx, .xls" class="hidden" required onchange="handleFileSelect()">
+                    </div>
+                    
+                    <p id="fileNameDisplay" style="text-align: center; margin-bottom: 20px; font-weight: 600; color: var(--primary);"></p>
+
+                    <button type="submit" class="btn-primary" id="uploadBtn">Process Dataset</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function handleFileSelect() {
+        const fileInput = document.getElementById('fileInput');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        if (fileInput.files.length > 0) {
+            fileNameDisplay.innerText = "Selected: " + fileInput.files[0].name;
+        }
+    }
+    
+    document.getElementById('uploadForm').addEventListener('submit', function() {
+        const btn = document.getElementById('uploadBtn');
+        btn.innerHTML = '<div class="spinner"></div> Processing Data...';
+        btn.disabled = true;
+    });
+
+    // Sidebar template inclusion handled by Flask, but let's mock the sidebar directly here to save time if we didn't decouple it
+</script>
+{% endblock %}

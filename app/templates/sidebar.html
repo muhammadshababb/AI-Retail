@@ -1,0 +1,44 @@
+<div class="sidebar">
+    <div class="sidebar-brand">
+        <div class="brand-icon">
+            <i class="fa-solid fa-chart-pie"></i>
+        </div>
+        <span class="brand-text">AI RETAIL</span>
+    </div>
+
+    <div class="sidebar-label">Platform</div>
+    <div class="sidebar-nav">
+        <a href="{{ url_for('dash.home') }}" class="nav-item {% if request.endpoint == 'dash.home' %}active{% endif %}">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="{{ url_for('dataset.upload') }}" class="nav-item {% if request.endpoint == 'dataset.upload' %}active{% endif %}">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <span>Upload File</span>
+        </a>
+        <a href="{{ url_for('dash.schema') }}" class="nav-item {% if request.endpoint == 'dash.schema' %}active{% endif %}">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>Architecture</span>
+        </a>
+    </div>
+
+    <div class="sidebar-label">System</div>
+    <div class="sidebar-nav">
+        <a href="{{ url_for('dash.settings') }}" class="nav-item {% if request.endpoint == 'dash.settings' %}active{% endif %}">
+            <i class="fa-solid fa-gear"></i>
+            <span>Settings</span>
+        </a>
+    </div>
+
+    <div class="sidebar-footer-custom">
+        <div class="user-profile-badge">
+            <div class="user-avatar">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="user-details">
+                <span class="user-name">AI Retail Platform</span>
+                <span class="user-role">Open Access</span>
+            </div>
+        </div>
+    </div>
+</div>

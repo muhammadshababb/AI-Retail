@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="app-container">
+    {% include 'sidebar.html' %}
+
+    <div class="main-content">
+        <div class="topbar">
+            <h2>Home</h2>
+            <div class="user-profile">
+                <button id="themeToggle" class="btn-primary" style="padding: 8px; width: auto;"><i class="fa-solid fa-moon"></i></button>
+            </div>
+        </div>
+
+        <div class="content-body" id="dashboardContent">
+            <div class="home-portal">
+                <div class="glow-orb orb-1"></div>
+                <div class="glow-orb orb-2"></div>
+                
+                <div class="hero-section">
+                    <h1 class="gradient-text">Welcome to AI Retail</h1>
+                    <p style="color: var(--text-muted); font-size: 16px; max-width: 600px; margin: 0 auto;">Your personal demand intelligence suite. Analyze your uploaded datasets, generate AI-driven forecasts, and gain actionable retail insights effortlessly.</p>
+                </div>
+                
+                <!-- KPI Stats -->
+                <div class="global-kpi-grid">
+                    <div class="glass-kpi" style="background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(139,92,246,0.06)); border-color: rgba(59,130,246,0.18);">
+                        <div style="width: 48px; height: 48px; background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.25); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #60A5FA; box-shadow: 0 0 20px rgba(59,130,246,0.2); flex-shrink: 0;">
+                            <i class="fa-solid fa-wave-square"></i>
+                        </div>
+                        <div class="kpi-info">
+                            <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600;">Records Analyzed</span>
+                            <strong style="font-size: 28px; font-weight: 800; letter-spacing: -0.03em; background: linear-gradient(to right, #60A5FA, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                                {{ "{:,}".format(total_rows) if total_rows else "—" }}
+                            </strong>
+                        </div>
+                    </div>
+                    <div class="glass-kpi" style="background: linear-gradient(135deg, rgba(139,92,246,0.08), rgba(16,185,129,0.06)); border-color: rgba(139,92,246,0.18);">
+                        <div style="width: 48px; height: 48px; background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.25); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #A78BFA; box-shadow: 0 0 20px rgba(139,92,246,0.2); flex-shrink: 0;">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div class="kpi-info">
+                            <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 600;">AI Forecast Status</span>
+                            <strong style="color: var(--success); font-size: 22px; font-weight: 700;">Ready</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platform Architecture Pipeline -->
+                <div class="system-monitor" style="margin-top: 40px;">
+                    <h3 style="margin-bottom: 28px; font-size: 18px; position: relative; z-index: 1; letter-spacing: -0.02em;">Platform Architecture</h3>
+                    <div class="pipeline-container">
+                        <div class="pipeline-node">
+                            <div class="node-icon">
+                                <i class="fa-solid fa-file-csv"></i>
+                            </div>
+                            <h4>Data Ingestion</h4>
+                            <span class="node-status">Online</span>
+                        </div>
+                        <div class="pipeline-path">
+                            <div class="flowing-line"></div>
+                        </div>
+                        <div class="pipeline-node">
+                            <div class="node-icon" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6; border-color: rgba(139,92,246,0.2);">
+                                <i class="fa-solid fa-filter"></i>
+                            </div>
+                            <h4>Dynamic ETL</h4>
+                            <span class="node-status">Active</span>
+                        </div>
+                        <div class="pipeline-path">
+                            <div class="flowing-line flowing-delay"></div>
+                        </div>
+                        <div class="pipeline-node">
+                            <div class="node-icon" style="background: rgba(16, 185, 129, 0.1); color: #10B981; border-color: rgba(16,185,129,0.2);">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <h4>AI Inference</h4>
+                            <span class="node-status">Ready</span>
+                        </div>
+                        <div class="pipeline-path">
+                            <div class="flowing-line" style="background: #10B981; box-shadow: 0 0 10px #10B981; animation-delay: 0.5s;"></div>
+                        </div>
+                        <div class="pipeline-node">
+                            <div class="node-icon" style="background: rgba(245, 158, 11, 0.1); color: #F59E0B; border-color: rgba(245,158,11,0.2);">
+                                <i class="fa-solid fa-chart-bar"></i>
+                            </div>
+                            <h4>Analytics</h4>
+                            <span class="node-status">Live</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

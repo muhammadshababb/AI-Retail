@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h1>Create Account</h1>
+        <p>Join to access the retail analytics engine.</p>
+        
+        <form method="POST" action="{{ url_for('auth.register') }}">
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" required placeholder="admin@example.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn-primary">Register</button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 20px; font-size: 14px;">
+            <span style="color: var(--text-muted)">Already have an account?</span> 
+            <a href="{{ url_for('auth.login') }}">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

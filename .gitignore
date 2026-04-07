@@ -1,0 +1,13 @@
+venv/
+retail_ai.db
+uploads/
+__pycache__/
+*.pyc
+.env
+.ipynb_checkpoints/
+*.xlsx
+*.csv
+!app/
+!run.py
+!requirements.txt
+!inspect_db.py
